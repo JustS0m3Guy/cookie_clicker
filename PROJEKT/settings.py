@@ -27,11 +27,15 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['HEROKUREMOTE.herokuapp.com', '127.0.0.1', 'localhost']
 
+TAILWIND_APP_NAME = 'theme'
 
 # Application definition
 
 INSTALLED_APPS = [
     'APP',
+    'tailwind',
+    'theme',
+    # 'django_browser_reload'
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -41,6 +45,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    # 'django_browser_reload.middleware.BrowserReloadMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -101,6 +106,11 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+INTERNAL_IPS = [
+    '127.0.0.1',
+]
+
+NPM_BIN_PATH = r"C:\Program Files\nodejs\npm.cmd"
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
