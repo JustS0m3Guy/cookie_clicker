@@ -1,16 +1,25 @@
 from django.db import models
-# from django.contrib.auth.models import User https://www.geeksforgeeks.org/how-to-use-user-model-in-django/
+from django.conf import settings
 
-class MODELNAME(models.Model):
-
-    # TODO: Define fields here
-
-    class Game_data:
+class Game_data(models.Model):
+    class Meta:
 
         verbose_name = 'game_data'
         verbose_name_plural = 'game_datas'
 
-    user = models.ForeignKey(User, blank=True, null=True)
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        to_field='username')
+    cookie_number = models.BigIntegerField(default=0)
+    grandma_number = models.BigIntegerField(default=0)
+    factory_number = models.BigIntegerField(default=0)
+    click_upgrade_1 = models.BooleanField(default=False)
+    click_upgrade_2 = models.BooleanField(default=False)
+    click_upgrade_3 = models.BooleanField(default=False)
+    click_upgrade_4 = models.BooleanField(default=False)
+    level = models.BigIntegerField(default=1)
+
 
     def __str__(self):
-        pass
+        return f"{self.user}, {self.level}"
