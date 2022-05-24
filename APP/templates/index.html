@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -7,7 +8,14 @@
         <title>k</title>
     </head>
     <body>
-        <a href="http://127.0.0.1:8000/accounts/logout/">Kijelentkezem</a>
-        
+        <a href="http://127.0.0.1:8000/accounts/logout/">logout</a>
+        <div> number of cookies: {{cookies}} </div>
+        <div> number of grandmas: {{grandmas}} </div>
+        <div> number of factories: {{factories}} </div>
+        <div> did they buy the 1st click upgrade: {{click_upgrade_1}} </div>
+        <div> did they buy the 2nd click upgrade: {{click_upgrade_2}} </div>
+        <div> did they buy the 3rd click upgrade: {{click_upgrade_3}} </div>
+        <div> did they buy the 4th click upgrade: {{click_upgrade_4}} </div>
+        <div> level: {{level}} </div>
     </body>
 </html>
