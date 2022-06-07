@@ -23,10 +23,10 @@
             <div>new cookies: <input type="number" name="newcookienumber" value="{{cookies}}"></div>
             <div>new grandmas: <input type="number" name="grandmanumber" value="{{grandmas}}"></div>
             <div>new factories: <input type="number" name="factorienumber" value="{{factories}}"></div>
-            <div>new upgrade1: <input type="checkbox" name="cpsu1" {% if click_upgrade_1 %} checked {% else %} value="0" {% endif %}></div>
-            <div>new upgrade2: <input type="checkbox" name="cpsu2" {% if click_upgrade_2 %} checked {% else %} {% endif %}></div>
-            <div>new upgrade3: <input type="checkbox" name="cpsu3" {% if click_upgrade_3 %} checked {% else %} {% endif %}></div>
-            <div>new upgrade4: <input type="checkbox" name="cpsu4" {% if click_upgrade_4 %} checked {% else %} {% endif %}></div>
+            <div>new upgrade1: <input type="text" name="cpsu1" value="{{click_upgrade_1}}"></div>
+            <div>new upgrade2: <input type="text" name="cpsu2" value="{{click_upgrade_2}}"></div>
+            <div>new upgrade3: <input type="text" name="cpsu3" value="{{click_upgrade_3}}"></div>
+            <div>new upgrade4: <input type="text" name="cpsu4" value="{{click_upgrade_4}}"></div>
             <div>new level: <input type="number" name="levelnumber" value="{{level}}"></div>
             <div><button type="submit">Cookie send</button></div>
         </form>
