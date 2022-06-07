@@ -22,7 +22,7 @@ def index(request):
     if request.method=="POST":
         newcookies = request.POST['newcookienumber']
         newgradmas = request.POST['grandmanumber']
-        newfactories = request.POST['grandmanumber']
+        newfactories = request.POST['factorynumber']
         newcu1 = request.POST['cpsu1']
         newcu2 = request.POST['cpsu2']
         newcu3 = request.POST['cpsu3']

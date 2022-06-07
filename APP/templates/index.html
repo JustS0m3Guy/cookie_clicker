@@ -5,7 +5,9 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>k</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"
+        />
+        <title>framework</title>
     </head>
     <body>
         <a href="http://127.0.0.1:8000/accounts/logout/">logout</a>
@@ -22,7 +24,7 @@
             {% csrf_token %}
             <div>new cookies: <input type="number" name="newcookienumber" value="{{cookies}}"></div>
             <div>new grandmas: <input type="number" name="grandmanumber" value="{{grandmas}}"></div>
-            <div>new factories: <input type="number" name="factorienumber" value="{{factories}}"></div>
+            <div>new factories: <input type="number" name="factorynumber" value="{{factories}}"></div>
             <div>new upgrade1: <input type="text" name="cpsu1" value="{{click_upgrade_1}}"></div>
             <div>new upgrade2: <input type="text" name="cpsu2" value="{{click_upgrade_2}}"></div>
             <div>new upgrade3: <input type="text" name="cpsu3" value="{{click_upgrade_3}}"></div>
