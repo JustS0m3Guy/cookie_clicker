@@ -8,7 +8,7 @@ import json
 def index(request):
     template='index.html'
     
-    #print(request.user.game_data.cookie_number, request.user.game_data.grandma_number, request.user.game_data.factory_number, request.user.game_data.click_upgrade_1, request.user.game_data.click_upgrade_2, request.user.game_data.click_upgrade_3, request.user.game_data.click_upgrade_4, request.user.game_data.level)
+    #print(request.user.game_data.cookie_number, request.user.game_data.grandma_number, request.user.game_data.factory_number, request.user.game_data.click_upgrade_1, request.user.game_data.click_upgrade_2, request.user.game_data.click_upgrade_3, request.user.game_data.click_upgrade_4, request.user.game_data.experience, request.user.game_data.level)
     context={
         "cookies" : request.user.game_data.cookie_number,
         "grandmas" : request.user.game_data.grandma_number,
@@ -17,6 +17,7 @@ def index(request):
         "click_upgrade_2" : request.user.game_data.click_upgrade_2,
         "click_upgrade_3" : request.user.game_data.click_upgrade_3,
         "click_upgrade_4" : request.user.game_data.click_upgrade_4,
+        "experience" : request.user.game_data.exp,
         "level" : request.user.game_data.level,
     }
 
@@ -33,6 +34,7 @@ def index(request):
         newcu3 = body['cpsu3']
         newcu4 = body['cpsu4']
         newlvl = body['levelnumber']
+        newexp = body['experiencenumber']
 
         gm = Game_data.objects.get()
         updateneeded = 0
@@ -78,6 +80,10 @@ def index(request):
             if (newcu4 == "True"):
                 gm.click_upgrade_4 = True
             
+            updateneeded += 1
+
+        if ((gm.exp != newexp) or (newexp != "")):
+            gm.exp = newexp
             updateneeded += 1
 
         if ((gm.level != newlvl) or (newlvl != 0) or (newlvl != "")):

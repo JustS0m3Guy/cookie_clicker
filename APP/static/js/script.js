@@ -24,12 +24,15 @@ const post = async (urL, payload = {}) => {
 let cookie_number
 let grandma_cost
 let factory_cost
+let totalexp
 async function ready() {
     grandma_cost = Math.round(100*(1.15**parseFloat(document.querySelector("#grandmanumber").value)));
     document.getElementById('buy_grandmas').innerHTML = "Buy a grandma for "+ grandma_cost;
 
     factory_cost = Math.round(1000*(1.15**parseFloat(document.querySelector("#factorynumber").value)));
     document.getElementById('buy_factories').innerHTML = "Buy a factory for "+ factory_cost;
+
+    totalexp = parseFloat(document.querySelector("#grandmanumber").value);
 
     setInterval(save, 30_000);
     setInterval(cookies_baked_ps, 1_000);
@@ -43,6 +46,34 @@ async function ready() {
 
     document.querySelector('#cookie').addEventListener('click', bakecookie);
     document.getElementById('submit')?.addEventListener('click', save);
+}
+
+function bakecookie() {
+    cookie_number = parseFloat(document.querySelector('#newcookienumber').value);
+    totalexp = parseFloat(document.querySelector("#experiencenumber").value);
+    let cookie_increase = 1;
+    if (document.querySelector('#cpsu1').value == "True")
+    {
+        cookie_increase = cookie_increase + 1;
+    }
+    if (document.querySelector('#cpsu2').value == "True")
+    {
+        cookie_increase = cookie_increase + 3;
+    }
+    if (document.querySelector('#cpsu3').value == "True")
+    {
+        cookie_increase = cookie_increase + 5;
+    }
+    if (document.querySelector('#cpsu4').value == "True")
+    {
+        cookie_increase = cookie_increase + 15;
+    }
+    cookie_number = cookie_number + cookie_increase;
+    totalexp = totalexp + cookie_increase;
+    document.querySelector('#newcookienumber').value = cookie_number;
+    document.querySelector('#experiencenumber').value = totalexp;
+    document.getElementById('cookies_per_click').innerHTML = "cookies per click: "+ cookie_increase;
+    document.querySelector('#cookie_number_div').innerHTML = "number of cookies: " + cookie_number;
 }
 
 function buyclickupgrade1() {
@@ -109,31 +140,6 @@ function buyclickupgrade4() {
     }
 }
 
-function bakecookie() {
-    cookie_number = parseFloat(document.querySelector('#newcookienumber').value);
-    let cookie_increase = 1;
-    if (document.querySelector('#cpsu1').value == "True")
-    {
-        cookie_increase = cookie_increase + 1;
-    }
-    if (document.querySelector('#cpsu2').value == "True")
-    {
-        cookie_increase = cookie_increase + 3;
-    }
-    if (document.querySelector('#cpsu3').value == "True")
-    {
-        cookie_increase = cookie_increase + 5;
-    }
-    if (document.querySelector('#cpsu4').value == "True")
-    {
-        cookie_increase = cookie_increase + 15;
-    }
-    cookie_number = cookie_number + cookie_increase;
-    document.querySelector('#newcookienumber').value = cookie_number;
-    document.getElementById('cookies_per_click').innerHTML = "cookies per click: "+ cookie_increase;
-    document.querySelector('#cookie_number_div').innerHTML = 'number of cookies: ' + cookie_number;
-}
-
 function buygrandma() {
     grandma_cost = Math.round(100*(1.15**parseFloat(document.querySelector("#grandmanumber").value)));
     cookie_number = parseFloat(document.querySelector('#newcookienumber').value);
@@ -175,14 +181,24 @@ function buyfactory() {
 }
 
 function cookies_baked_ps() {
+    let levelupgrade = 100*(10**parseFloat(document.querySelector("#levelnumber").value));
     cookie_number = parseFloat(document.querySelector('#newcookienumber').value);
+    totalexp = parseInt(document.querySelector("#experiencenumber").value);
     let cps_sum = 0;
     cps_sum = cps_sum + document.querySelector('#grandmanumber').value * 1;
     cps_sum = cps_sum + document.querySelector('#factorynumber').value * 15;
     cookie_number = cookie_number+ cps_sum;
     document.querySelector('#newcookienumber').value = cookie_number;
-    document.querySelector('#cookie_number_div').innerHTML = 'number of cookies: ' + cookie_number;
+    document.querySelector('#cookie_number_div').innerHTML = "number of cookies: " + cookie_number;
     document.getElementById('cookies_per_second').innerHTML = "cookies per second: "+ cps_sum;
+    totalexp = totalexp + cps_sum;
+    document.getElementById('experiencenumber').value = totalexp;
+    if (levelupgrade <= totalexp)
+    {
+        document.querySelector("#levelnumber").value++;
+        alert("You have leveled up to level "+ document.querySelector("#levelnumber").value)
+        document.getElementById('level').innerHTML = "level: "+ document.querySelector("#levelnumber").value;
+    }
 }
 
 // ez akkor van meghivva amikor save megnyomodik
@@ -196,6 +212,7 @@ const save = () => {
         'cpsu2',
         'cpsu3',
         'cpsu4',
+        'experiencenumber',
         'levelnumber',
     ];
     const payload = {};

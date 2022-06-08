@@ -15,6 +15,7 @@ class Game_data(models.Model):
     click_upgrade_2 = models.BooleanField(default=False)
     click_upgrade_3 = models.BooleanField(default=False)
     click_upgrade_4 = models.BooleanField(default=False)
+    exp = models.FloatField(default=0)
     level = models.FloatField(default=1)
 
     def __str__(self):
