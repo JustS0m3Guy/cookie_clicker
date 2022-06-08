@@ -7,37 +7,50 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
         <script src="{% static 'js/script.js' %}"></script>
-        <title>Cookie clicker</title>
+        <title>framework</title>
     </head>
     <body>
         <a href="http://127.0.0.1:8000/accounts/logout/">logout</a>
-        <div id="cookie_number_div">number of cookies: {{cookies}}</div>
-        <div id="grandma_number_div">number of grandmas: {{grandmas}}</div>
-        <div id="factory_number_div">number of factories: {{factories}}</div>
-        <div id="cookies_per_click">cookies per click: 1</div>
-        <div id="cookies_per_second">cookies per second: 0</div>
-        <div id="level">level: {{level}}</div>
-        <button id="buy_grandmas"></button>
-        <button id="buy_factories"></button>
-        <div>
-            <button id="clickupgrade_1">cps upgrade 1</button>
-            <button id="clickupgrade_2">cps upgrade 2</button>
-            <button id="clickupgrade_3">cps upgrade 3</button>
-            <button id="clickupgrade_4">cps upgrade 4</button>
-        </div>
 
-        <div>
-            <div><input id="newcookienumber" hidden="number" value="{{cookies}}"/></div>
-            <img src="{% static 'images/Cookie.png' %}" alt="cookie" id="cookie"/>
-            <div><input type="hidden" id="grandmanumber" value="{{grandmas}}"/></div>
-            <div><input type="hidden" id="factorynumber" value="{{factories}}"/></div>
-            <div><input type="hidden" id="cpsu1" value="{{click_upgrade_1}}"/></div>
-            <div><input type="hidden" id="cpsu2" value="{{click_upgrade_2}}"/></div>
-            <div><input type="hidden" id="cpsu3" value="{{click_upgrade_3}}"/></div>
-            <div><input type="hidden" id="cpsu4" value="{{click_upgrade_4}}"/></div>
-            <div><input type="number" id="experiencenumber" value="{{experience}}"/></div>
-            <div><input type="hidden" id="levelnumber" value="{{level}}"/></div>
-            <div><button id="submit">Save</button></div>
+        <div class="gigacontainer">
+            <div class="mainwindow">
+                <div class="cookiewindow">
+                    <div class="counters">
+                        <div id="cookie_number_div">number of cookies: {{cookies}}</div>
+                        <div id="cookies_per_second">cookies per second: 0</div>
+                        <div id="cookies_per_click">cookies per click: 1</div>
+                        <div id="level">level: {{level}}</div>
+                    </div>
+                    <div class="cookiealign">
+                        <img src="{% static 'images/Cookie.png' %}" alt="cookie" id="cookie" />
+                    </div>
+                </div>
+                
+                <div class="upgradewindow">upgrades
+                    <div>
+                        <button id="clickupgrade_1">cps upgrade 1</button>
+                        <button id="clickupgrade_2">cps upgrade 2</button>
+                        <button id="clickupgrade_3">cps upgrade 3</button>
+                        <button id="clickupgrade_4">cps upgrade 4</button>
+                        <div id="grandma_number_div">number of grandmas: {{grandmas}}</div>
+                        <div id="factory_number_div">number of factories: {{factories}}</div>     
+                        <button id="buy_grandmas"></button>
+                        <button id="buy_factories"></button>
+                    </div>
+                </div>
+                <div>
+                    <div><input id="newcookienumber" hidden="number" value="{{cookies}}"/></div>
+                    <div><input type="hidden" id="grandmanumber" value="{{grandmas}}"/></div>
+                    <div><input type="hidden" id="factorynumber" value="{{factories}}"/></div>
+                    <div><input type="hidden" id="cpsu1" value="{{click_upgrade_1}}"/></div>
+                    <div><input type="hidden" id="cpsu2" value="{{click_upgrade_2}}"/></div>
+                    <div><input type="hidden" id="cpsu3" value="{{click_upgrade_3}}"/></div>
+                    <div><input type="hidden" id="cpsu4" value="{{click_upgrade_4}}"/></div>
+                    <div><input type="hidden" id="experiencenumber" value="{{experience}}"/></div>
+                    <div><input type="hidden" id="levelnumber" value="{{level}}"/></div>
+                    <div><button id="submit">Save</button></div>
+                </div>
+            </div>
         </div>
     </body>
 </html>
