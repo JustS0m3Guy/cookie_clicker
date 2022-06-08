@@ -26,15 +26,91 @@ let grandma_cost
 let factory_cost
 async function ready() {
     grandma_cost = Math.round(100*(1.15**parseFloat(document.querySelector("#grandmanumber").value)));
-    factory_cost = Math.round(1000*(1.15**parseFloat(document.querySelector("#factorynumber").value)));
     document.getElementById('buy_grandmas').innerHTML = "Buy a grandma for "+ grandma_cost;
+
+    factory_cost = Math.round(1000*(1.15**parseFloat(document.querySelector("#factorynumber").value)));
     document.getElementById('buy_factories').innerHTML = "Buy a factory for "+ factory_cost;
+
     //setInterval(save, 30_000);
-    var thecookie = document.querySelector('#cookie');
-    thecookie.addEventListener('click', bakecookie);
+    //setInterval(cookies_baked_ps, 1_000);
+
     document.getElementById('buy_grandmas').addEventListener('click', buygrandma);
     document.getElementById('buy_factories').addEventListener('click', buyfactory);
+    document.getElementById('clickupgrade_1').addEventListener('click', buyclickupgrade1);
+    document.getElementById('clickupgrade_2').addEventListener('click', buyclickupgrade2);
+    document.getElementById('clickupgrade_3').addEventListener('click', buyclickupgrade3);
+    document.getElementById('clickupgrade_4').addEventListener('click', buyclickupgrade4);
+
+    document.querySelector('#cookie').addEventListener('click', bakecookie);
     document.getElementById('submit')?.addEventListener('click', save);
+}
+
+function buyclickupgrade1() {
+    cookie_number = parseFloat(document.querySelector('#newcookienumber').value);
+    let cps1 = document.getElementById('cpsu1').value;
+    if (cps1 == "False" && !(cookie_number < 100))
+    {
+        cookie_number = cookie_number - 100;
+        document.querySelector('#cpsu1_div').innerHTML = "did they buy the 1st click upgrade: True";
+        document.getElementById('cpsu1').value = "True";
+        document.querySelector('#newcookienumber').value = cookie_number;
+        document.querySelector('#cookie_number_div').innerHTML = 'number of cookies: ' + cookie_number;
+    }
+    else
+    {
+        alert("You don't have enough cookies, or you have already bought the upgrade!");
+    }
+}
+
+function buyclickupgrade2() {
+    cookie_number = parseFloat(document.querySelector('#newcookienumber').value);
+    let cps2 = document.getElementById('cpsu2').value;
+    if (cps2 == "False" && !(cookie_number < 500))
+    {
+        cookie_number = cookie_number - 500;
+        document.querySelector('#cpsu2_div').innerHTML = "did they buy the 2nd click upgrade: True";
+        document.getElementById('cpsu2').value = "True";
+        document.querySelector('#newcookienumber').value = cookie_number;
+        document.querySelector('#cookie_number_div').innerHTML = 'number of cookies: ' + cookie_number;
+    }
+    else
+    {
+        alert("You don't have enough cookies, or you have already bought the upgrade!");
+    }
+}
+
+function buyclickupgrade3() {
+    cookie_number = parseFloat(document.querySelector('#newcookienumber').value);
+    let cps3 = document.getElementById('cpsu3').value;
+    if (cps3 == "False" && !(cookie_number < 5000))
+    {
+        cookie_number = cookie_number - 5000;
+        document.querySelector('#cpsu3_div').innerHTML = "did they buy the 3rd click upgrade: True";
+        document.getElementById('cpsu3').value = "True";
+        document.querySelector('#newcookienumber').value = cookie_number;
+        document.querySelector('#cookie_number_div').innerHTML = 'number of cookies: ' + cookie_number;
+    }
+    else
+    {
+        alert("You don't have enough cookies, or you have already bought the upgrade!");
+    }
+}
+
+function buyclickupgrade4() {
+    cookie_number = parseFloat(document.querySelector('#newcookienumber').value);
+    let cps4 = document.getElementById('cpsu4').value;
+    if (cps4 == "False" && !(cookie_number < 10000))
+    {
+        cookie_number = cookie_number - 10000;
+        document.querySelector('#cpsu4_div').innerHTML = "did they buy the 4th click upgrade: True";
+        document.getElementById('cpsu4').value = "True";
+        document.querySelector('#newcookienumber').value = cookie_number;
+        document.querySelector('#cookie_number_div').innerHTML = 'number of cookies: ' + cookie_number;
+    }
+    else
+    {
+        alert("You don't have enough cookies, or you have already bought the upgrade!");
+    }
 }
 
 function bakecookie() {
@@ -100,6 +176,17 @@ function buyfactory() {
         document.getElementById('buy_factories').innerHTML = "Buy a factory for "+ factory_cost;
     }
 }
+
+function cookies_baked_ps() {
+    cookie_number = parseFloat(document.querySelector('#newcookienumber').value);
+    let cps_sum = 0;
+    cps_sum = cps_sum + document.querySelector('#grandmanumber').value * 1;
+    cps_sum = cps_sum + document.querySelector('#factorynumber').value * 15;
+    cookie_number = cookie_number+ cps_sum;
+    document.querySelector('#newcookienumber').value = cookie_number;
+    document.querySelector('#cookie_number_div').innerHTML = 'number of cookies: ' + cookie_number;
+}
+
 // ez akkor van meghivva amikor save megnyomodik
 const save = () => {
     // ezek az ID-jai az inputoknak
