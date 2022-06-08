@@ -31,8 +31,8 @@ async function ready() {
     factory_cost = Math.round(1000*(1.15**parseFloat(document.querySelector("#factorynumber").value)));
     document.getElementById('buy_factories').innerHTML = "Buy a factory for "+ factory_cost;
 
-    //setInterval(save, 30_000);
-    //setInterval(cookies_baked_ps, 1_000);
+    setInterval(save, 30_000);
+    setInterval(cookies_baked_ps, 1_000);
 
     document.getElementById('buy_grandmas').addEventListener('click', buygrandma);
     document.getElementById('buy_factories').addEventListener('click', buyfactory);
@@ -51,7 +51,6 @@ function buyclickupgrade1() {
     if (cps1 == "False" && !(cookie_number < 100))
     {
         cookie_number = cookie_number - 100;
-        document.querySelector('#cpsu1_div').innerHTML = "did they buy the 1st click upgrade: True";
         document.getElementById('cpsu1').value = "True";
         document.querySelector('#newcookienumber').value = cookie_number;
         document.querySelector('#cookie_number_div').innerHTML = 'number of cookies: ' + cookie_number;
@@ -68,7 +67,6 @@ function buyclickupgrade2() {
     if (cps2 == "False" && !(cookie_number < 500))
     {
         cookie_number = cookie_number - 500;
-        document.querySelector('#cpsu2_div').innerHTML = "did they buy the 2nd click upgrade: True";
         document.getElementById('cpsu2').value = "True";
         document.querySelector('#newcookienumber').value = cookie_number;
         document.querySelector('#cookie_number_div').innerHTML = 'number of cookies: ' + cookie_number;
@@ -85,7 +83,6 @@ function buyclickupgrade3() {
     if (cps3 == "False" && !(cookie_number < 5000))
     {
         cookie_number = cookie_number - 5000;
-        document.querySelector('#cpsu3_div').innerHTML = "did they buy the 3rd click upgrade: True";
         document.getElementById('cpsu3').value = "True";
         document.querySelector('#newcookienumber').value = cookie_number;
         document.querySelector('#cookie_number_div').innerHTML = 'number of cookies: ' + cookie_number;
@@ -102,7 +99,6 @@ function buyclickupgrade4() {
     if (cps4 == "False" && !(cookie_number < 10000))
     {
         cookie_number = cookie_number - 10000;
-        document.querySelector('#cpsu4_div').innerHTML = "did they buy the 4th click upgrade: True";
         document.getElementById('cpsu4').value = "True";
         document.querySelector('#newcookienumber').value = cookie_number;
         document.querySelector('#cookie_number_div').innerHTML = 'number of cookies: ' + cookie_number;
@@ -134,6 +130,7 @@ function bakecookie() {
     }
     cookie_number = cookie_number + cookie_increase;
     document.querySelector('#newcookienumber').value = cookie_number;
+    document.getElementById('cookies_per_click').innerHTML = "cookies per click: "+ cookie_increase;
     document.querySelector('#cookie_number_div').innerHTML = 'number of cookies: ' + cookie_number;
 }
 
@@ -185,6 +182,7 @@ function cookies_baked_ps() {
     cookie_number = cookie_number+ cps_sum;
     document.querySelector('#newcookienumber').value = cookie_number;
     document.querySelector('#cookie_number_div').innerHTML = 'number of cookies: ' + cookie_number;
+    document.getElementById('cookies_per_second').innerHTML = "cookies per second: "+ cps_sum;
 }
 
 // ez akkor van meghivva amikor save megnyomodik

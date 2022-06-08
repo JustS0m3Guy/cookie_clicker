@@ -7,17 +7,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
         <script src="{% static 'js/script.js' %}"></script>
-        <title>framework</title>
+        <title>Cookie clicker</title>
     </head>
     <body>
         <a href="http://127.0.0.1:8000/accounts/logout/">logout</a>
         <div id="cookie_number_div">number of cookies: {{cookies}}</div>
         <div id="grandma_number_div">number of grandmas: {{grandmas}}</div>
         <div id="factory_number_div">number of factories: {{factories}}</div>
-        <div id="cpsu1_div">did they buy the 1st click upgrade: {{click_upgrade_1}}</div>
-        <div id="cpsu2_div">did they buy the 2nd click upgrade: {{click_upgrade_2}}</div>
-        <div id="cpsu3_div">did they buy the 3rd click upgrade: {{click_upgrade_3}}</div>
-        <div id="cpsu4_div">did they buy the 4th click upgrade: {{click_upgrade_4}}</div>
+        <div id="cookies_per_click">cookies per click: 1</div>
+        <div id="cookies_per_second">cookies per second: 0</div>
         <div>level: {{level}}</div>
         <button id="buy_grandmas"></button>
         <button id="buy_factories"></button>
