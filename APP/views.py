@@ -1,6 +1,8 @@
+from django.http import HttpResponse
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from .models import Game_data
+import json
 
 @login_required
 def index(request):
@@ -20,14 +22,17 @@ def index(request):
 
 
     if request.method=="POST":
-        newcookies = request.POST['newcookienumber']
-        newgradmas = request.POST['grandmanumber']
-        newfactories = request.POST['factorynumber']
-        newcu1 = request.POST['cpsu1']
-        newcu2 = request.POST['cpsu2']
-        newcu3 = request.POST['cpsu3']
-        newcu4 = request.POST['cpsu4']
-        newlvl = request.POST['levelnumber']
+        # igy jo elvileg
+        body = json.loads(request.body.decode('utf-8'))
+
+        newcookies = body['newcookienumber']
+        newgradmas = body['grandmanumber']
+        newfactories = body['factorynumber']
+        newcu1 = body['cpsu1']
+        newcu2 = body['cpsu2']
+        newcu3 = body['cpsu3']
+        newcu4 = body['cpsu4']
+        newlvl = body['levelnumber']
 
         gm = Game_data.objects.get()
         updateneeded = 0
@@ -85,5 +90,7 @@ def index(request):
             #print(gm.cookie_number)
             gm.save()
             updateneeded = 0
+
+        return HttpResponse('ok')
         
     return render(request, template, context)

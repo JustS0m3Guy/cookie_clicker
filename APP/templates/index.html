@@ -2,35 +2,35 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
         <script src="{% static 'js/script.js' %}"></script>
         <title>framework</title>
     </head>
     <body>
         <a href="http://127.0.0.1:8000/accounts/logout/">logout</a>
-        <div id="cookie_number_div"> number of cookies: {{cookies}} </div>
-        <div> number of grandmas: {{grandmas}} </div>
-        <div> number of factories: {{factories}} </div>
-        <div> did they buy the 1st click upgrade: {{click_upgrade_1}} </div>
-        <div> did they buy the 2nd click upgrade: {{click_upgrade_2}} </div>
-        <div> did they buy the 3rd click upgrade: {{click_upgrade_3}} </div>
-        <div> did they buy the 4th click upgrade: {{click_upgrade_4}} </div>
-        <div> level: {{level}} </div>
+        <div id="cookie_number_div">number of cookies: {{cookies}}</div>
+        <div>number of grandmas: {{grandmas}}</div>
+        <div>number of factories: {{factories}}</div>
+        <div>did they buy the 1st click upgrade: {{click_upgrade_1}}</div>
+        <div>did they buy the 2nd click upgrade: {{click_upgrade_2}}</div>
+        <div>did they buy the 3rd click upgrade: {{click_upgrade_3}}</div>
+        <div>did they buy the 4th click upgrade: {{click_upgrade_4}}</div>
+        <div>level: {{level}}</div>
 
-        <form method="post" action="">
-            {% csrf_token %}
-            <div>new cookies: <input id="cookie_number" type="number" name="newcookienumber" value="{{cookies}}"></div><img src="{% static 'images/Cookie.png' %}" alt="cookie" id="cookie">
-            <div>new grandmas: <input type="number" name="grandmanumber" value="{{grandmas}}"></div>
-            <div>new factories: <input type="number" name="factorynumber" value="{{factories}}"></div>
-            <div>new upgrade1: <input type="text" name="cpsu1" value="{{click_upgrade_1}}"></div>
-            <div>new upgrade2: <input type="text" name="cpsu2" value="{{click_upgrade_2}}"></div>
-            <div>new upgrade3: <input type="text" name="cpsu3" value="{{click_upgrade_3}}"></div>
-            <div>new upgrade4: <input type="text" name="cpsu4" value="{{click_upgrade_4}}"></div>
-            <div>new level: <input type="number" name="levelnumber" value="{{level}}"></div>
-            <div><button type="submit">Save</button></div>
-        </form>
+        <div>
+            <div>new cookies: <input id="newcookienumber" type="number" value="{{cookies}}" /></div>
+            <img src="{% static 'images/Cookie.png' %}" alt="cookie" id="cookie" />
+            <div>new grandmas: <input type="number" id="grandmanumber" value="{{grandmas}}" /></div>
+            <div>new factories: <input type="number" id="factorynumber" value="{{factories}}" /></div>
+            <div>new upgrade1: <input type="text" id="cpsu1" value="{{click_upgrade_1}}" /></div>
+            <div>new upgrade2: <input type="text" id="cpsu2" value="{{click_upgrade_2}}" /></div>
+            <div>new upgrade3: <input type="text" id="cpsu3" value="{{click_upgrade_3}}" /></div>
+            <div>new upgrade4: <input type="text" id="cpsu4" value="{{click_upgrade_4}}" /></div>
+            <div>new level: <input type="number" id="levelnumber" value="{{level}}" /></div>
+            <div><button id="submit">Save</button></div>
+        </div>
     </body>
 </html>
