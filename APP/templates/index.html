@@ -12,8 +12,8 @@
     <body>
         <a href="http://127.0.0.1:8000/accounts/logout/">logout</a>
         <div id="cookie_number_div">number of cookies: {{cookies}}</div>
-        <div>number of grandmas: {{grandmas}}</div>
-        <div>number of factories: {{factories}}</div>
+        <div id="grandma_number_div">number of grandmas: {{grandmas}}</div>
+        <div id="factory_number_div">number of factories: {{factories}}</div>
         <div>did they buy the 1st click upgrade: {{click_upgrade_1}}</div>
         <div>did they buy the 2nd click upgrade: {{click_upgrade_2}}</div>
         <div>did they buy the 3rd click upgrade: {{click_upgrade_3}}</div>
@@ -21,15 +21,17 @@
         <div>level: {{level}}</div>
 
         <div>
-            <div>new cookies: <input id="newcookienumber" type="number" value="{{cookies}}" /></div>
-            <img src="{% static 'images/Cookie.png' %}" alt="cookie" id="cookie" />
-            <div>new grandmas: <input type="number" id="grandmanumber" value="{{grandmas}}" /></div>
-            <div>new factories: <input type="number" id="factorynumber" value="{{factories}}" /></div>
-            <div>new upgrade1: <input type="text" id="cpsu1" value="{{click_upgrade_1}}" /></div>
-            <div>new upgrade2: <input type="text" id="cpsu2" value="{{click_upgrade_2}}" /></div>
-            <div>new upgrade3: <input type="text" id="cpsu3" value="{{click_upgrade_3}}" /></div>
-            <div>new upgrade4: <input type="text" id="cpsu4" value="{{click_upgrade_4}}" /></div>
-            <div>new level: <input type="number" id="levelnumber" value="{{level}}" /></div>
+            <div><input id="newcookienumber" hidden="number" value="{{cookies}}"/></div>
+            <img src="{% static 'images/Cookie.png' %}" alt="cookie" id="cookie"/>
+            <div><input type="hidden" id="grandmanumber" value="{{grandmas}}"/></div>
+            <button id="buy_grandmas"></button>
+            <div><input type="hidden" id="factorynumber" value="{{factories}}"/></div>
+            <button id="buy_factories"></button>
+            <div><input type="hidden" id="cpsu1" value="{{click_upgrade_1}}"/></div>
+            <div><input type="hidden" id="cpsu2" value="{{click_upgrade_2}}"/></div>
+            <div><input type="hidden" id="cpsu3" value="{{click_upgrade_3}}"/></div>
+            <div><input type="hidden" id="cpsu4" value="{{click_upgrade_4}}"/></div>
+            <div>new level: <input type="number" id="levelnumber" value="{{level}}"/></div>
             <div><button id="submit">Save</button></div>
         </div>
     </body>

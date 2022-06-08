@@ -21,29 +21,85 @@ const post = async (urL, payload = {}) => {
     // basic error handling
     if (!response.ok) alert('shit happened');
 };
-
+let cookie_number
+let grandma_cost
+let factory_cost
 async function ready() {
-    document.getElementById('submit')?.addEventListener('click', save);
-
-    // csinalhatsz ilyet - ez cleanebb
-    setInterval(save, 30_000);
-
+    grandma_cost = Math.round(100*(1.15**parseFloat(document.querySelector("#grandmanumber").value)));
+    factory_cost = Math.round(1000*(1.15**parseFloat(document.querySelector("#factorynumber").value)));
+    document.getElementById('buy_grandmas').innerHTML = "Buy a grandma for "+ grandma_cost;
+    document.getElementById('buy_factories').innerHTML = "Buy a factory for "+ factory_cost;
+    //setInterval(save, 30_000);
     var thecookie = document.querySelector('#cookie');
     thecookie.addEventListener('click', bakecookie);
-    for (let i = 1; i < 2; i++) {
-        await new Promise((r) => setTimeout(r, 30000));
-        console.log('saved');
-        i = 0;
-    }
+    document.getElementById('buy_grandmas').addEventListener('click', buygrandma);
+    document.getElementById('buy_factories').addEventListener('click', buyfactory);
+    document.getElementById('submit')?.addEventListener('click', save);
 }
 
 function bakecookie() {
-    let cookie_number = document.querySelector('#newcookienumber').value;
-    cookie_number++;
+    cookie_number = parseFloat(document.querySelector('#newcookienumber').value);
+    let cookie_increase = 1;
+    if (document.querySelector('#cpsu1').value == "True")
+    {
+        cookie_increase = cookie_increase + 1;
+    }
+    if (document.querySelector('#cpsu2').value == "True")
+    {
+        cookie_increase = cookie_increase + 3;
+    }
+    if (document.querySelector('#cpsu3').value == "True")
+    {
+        cookie_increase = cookie_increase + 5;
+    }
+    if (document.querySelector('#cpsu4').value == "True")
+    {
+        cookie_increase = cookie_increase + 15;
+    }
+    cookie_number = cookie_number + cookie_increase;
     document.querySelector('#newcookienumber').value = cookie_number;
     document.querySelector('#cookie_number_div').innerHTML = 'number of cookies: ' + cookie_number;
 }
 
+function buygrandma() {
+    grandma_cost = Math.round(100*(1.15**parseFloat(document.querySelector("#grandmanumber").value)));
+    cookie_number = parseFloat(document.querySelector('#newcookienumber').value);
+    if (cookie_number < grandma_cost)
+    {
+        alert("You don't have enough cookies!");
+    }
+    else
+    {
+        let grandma_number = document.querySelector('#grandmanumber').value;
+        grandma_number = +grandma_number + 1;
+        document.querySelector('#grandmanumber').value = grandma_number;
+        document.querySelector('#grandma_number_div').innerHTML = 'number of grandmas: ' + grandma_number;
+        cookie_number = cookie_number - grandma_cost;
+        document.querySelector('#newcookienumber').value = cookie_number;
+        document.querySelector('#cookie_number_div').innerHTML = 'number of cookies: ' + cookie_number;
+        document.getElementById('buy_grandmas').innerHTML = "Buy a grandma for "+ grandma_cost;
+    }
+}
+
+function buyfactory() {
+    factory_cost = Math.round(1000*(1.15**parseFloat(document.querySelector("#factorynumber").value)));
+    cookie_number = parseFloat(document.querySelector('#newcookienumber').value);
+    if (cookie_number < factory_cost)
+    {
+        alert("You don't have enough cookies!");
+    }
+    else
+    {
+        let factory_number = document.querySelector('#factorynumber').value;
+        factory_number = +factory_number + 1;
+        document.querySelector('#factorynumber').value = factory_number;
+        document.querySelector('#factory_number_div').innerHTML = 'number of grandmas: ' + factory_number;
+        cookie_number = cookie_number - factory_cost;
+        document.querySelector('#newcookienumber').value = cookie_number;
+        document.querySelector('#cookie_number_div').innerHTML = 'number of cookies: ' + cookie_number;
+        document.getElementById('buy_factories').innerHTML = "Buy a factory for "+ factory_cost;
+    }
+}
 // ez akkor van meghivva amikor save megnyomodik
 const save = () => {
     // ezek az ID-jai az inputoknak
