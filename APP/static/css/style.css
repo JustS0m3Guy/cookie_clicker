@@ -1,9 +1,87 @@
 html {
-    background-color: #222222;
-    color:aqua
 }
+
+body {
+    background-color: rgb(31, 31, 31);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+}
+/* 
+
+
+/* cookiewindow */
 #cookie {
-    height:25%;
-    width:25%;
     cursor: pointer;
+    height: 512px;
+    width: 512px;
+}
+
+.cookiealign {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-256px, -256px);
+    height: 0;
+    width: 0;
+}
+
+.counters {
+    position: absolute;
+    top: 32%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 100%;
+
+    text-align: center;
+    color: white;
+}
+
+#level {
+    font-size: 18px;
+    text-shadow: 3px 2px rgba(30, 30, 30, 0.8);
+}
+
+#cookie_number_div {
+    font-size: 30px;
+    background-image: radial-gradient(rgba(115, 211, 255, 0.25), rgba(0, 30, 112, 0.5), rgb(0, 2, 8));
+    text-shadow: 4px 3px rgba(30, 30, 30, 0.8);
+}
+
+/*
+
+
+/* upgradewindow */
+
+/*
+
+
+/* containers */
+.gigacontainer {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.mainwindow {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    width: 60vw;
+    background-color: red;
+}
+
+.cookiewindow {
+    position: relative;
+    width: 40%;
+    height: inherit;
+
+    background: url("/static/images/bredsmol.jpg") 20%;
+    /*background-image: linear-gradient(rgb(2, 72, 175), rgb(46, 122, 167), rgb(194, 227, 255));*/
+}
+
+.upgradewindow {
+    flex: 1;
+    background-color: skyblue;
 }
