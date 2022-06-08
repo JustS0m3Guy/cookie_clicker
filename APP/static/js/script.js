@@ -50,7 +50,7 @@ async function ready() {
 
 function bakecookie() {
     cookie_number = parseFloat(document.querySelector('#newcookienumber').value);
-    totalexp = parseFloat(document.querySelector("#experiencenumber").value);
+    totalexp = parseInt(document.querySelector("#experiencenumber").value);
     let cookie_increase = 1;
     if (document.querySelector('#cpsu1').value == "True")
     {
