@@ -2,3 +2,8 @@ html {
     background-color: #222222;
     color:aqua
 }
+#cookie {
+    height:25%;
+    width:25%;
+    cursor: pointer;
+}

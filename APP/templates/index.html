@@ -5,8 +5,8 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"
-        />
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
+        <script src="{% static 'js/script.js' %}"></script>
         <title>framework</title>
     </head>
     <body>
@@ -22,7 +22,7 @@
 
         <form method="post">
             {% csrf_token %}
-            <div>new cookies: <input type="number" name="newcookienumber" value="{{cookies}}"></div>
+            <div>new cookies: <input id="cookie_number" type="number" name="newcookienumber" value="{{cookies}}"></div><img src="{% static 'images/Cookie.png' %}" alt="cookie" id="cookie">
             <div>new grandmas: <input type="number" name="grandmanumber" value="{{grandmas}}"></div>
             <div>new factories: <input type="number" name="factorynumber" value="{{factories}}"></div>
             <div>new upgrade1: <input type="text" name="cpsu1" value="{{click_upgrade_1}}"></div>

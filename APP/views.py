@@ -6,7 +6,7 @@ from .models import Game_data
 def index(request):
     template='index.html'
     
-    print(request.user.game_data.cookie_number, request.user.game_data.grandma_number, request.user.game_data.factory_number, request.user.game_data.click_upgrade_1, request.user.game_data.click_upgrade_2, request.user.game_data.click_upgrade_3, request.user.game_data.click_upgrade_4, request.user.game_data.level)
+    #print(request.user.game_data.cookie_number, request.user.game_data.grandma_number, request.user.game_data.factory_number, request.user.game_data.click_upgrade_1, request.user.game_data.click_upgrade_2, request.user.game_data.click_upgrade_3, request.user.game_data.click_upgrade_4, request.user.game_data.level)
     context={
         "cookies" : request.user.game_data.cookie_number,
         "grandmas" : request.user.game_data.grandma_number,
@@ -80,8 +80,8 @@ def index(request):
             updateneeded += 1
 
         if (updateneeded > 0):
-            print(gm.click_upgrade_1)
-            print(gm.save())
+            #print(gm.click_upgrade_1)
+            #print(gm.save())
             gm.save()
             updateneeded = 0
         
