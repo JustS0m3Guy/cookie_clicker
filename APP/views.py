@@ -82,6 +82,7 @@ def index(request):
         if (updateneeded > 0):
             #print(gm.click_upgrade_1)
             #print(gm.save())
+            #print(gm.cookie_number)
             gm.save()
             updateneeded = 0
         
