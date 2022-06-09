@@ -2,52 +2,47 @@ html {
 }
 
 body {
+    color: white;
     background-color: rgb(31, 31, 31);
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
     font-weight: bold;
+    margin: 0;
+    padding: 0;
 }
 
-#cookie {
-    cursor: pointer;
-    height: 20vw;
-    width: 20vw;
-    border-radius: 128px;
-}
-
-.cookiealign {
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    /*transform: translate(-256px, -256px);*/
-    height: 0;
-    width: 0;
-}
-
-.counters {
-    position: absolute;
-    top: 13vw;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
-    width: 100%;
-
-    text-align: center;
-    color: white;
-}
-
-#level {
-    font-size: 18px;
-    text-shadow: 3px 2px rgba(30, 30, 30, 0.8);
-}
-
-#cookie_number_div {
-    font-size: 30px;
-    background-image: radial-gradient(rgba(115, 211, 255, 0.25), rgba(0, 30, 112, 0.5), rgb(0, 2, 8));
+.header {
+    display: block;
+    font-size: 3vw;
     text-shadow: 4px 3px rgba(30, 30, 30, 0.8);
+
+    border: 0;
+    margin: 0;
+    padding: 6px 30px;
+}
+
+.subheader {
+    display: block;
+    color: inherit;
+    font-size: 20px;
+    text-shadow: 2px 1px rgba(30, 30, 30, 0.8);
+    background-image: radial-gradient(rgba(0, 0, 0, 0), rgba(59, 59, 59, 0.5), rgb(0, 0, 0));
+
+    border: 0.5px solid black;
+    margin: 0;
+    padding: 6px 30px;
+}
+
+.navbar {
+    position: absolute;
+}
+
+.separator {
+    height: inherit;
+    width: 1%;
+    border: none;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0), rgb(0, 0, 0)), radial-gradient(rgba(0, 0, 0, 0), rgba(65, 65, 65, 0.5), rgb(0, 0, 0)),
+        url("/static/images/metal.jpg");
 }
 
 .gigacontainer {
@@ -60,20 +55,127 @@ body {
     display: flex;
     flex-direction: row;
     height: 100vh;
-    width: 60vw;
+    width: 100vw;
     background-color: red;
 }
 
+/* ========================================================================== COOKIE WINDOW ========================================================================== */
 .cookiewindow {
     position: relative;
-    width: 40%;
+    flex: 1.5;
     height: inherit;
 
-    background: url("/static/images/breadsmol.jpg");
-    /*background-image: linear-gradient(rgb(2, 72, 175), rgb(46, 122, 167), rgb(194, 227, 255));*/
+    background: linear-gradient(rgba(255, 255, 255, 0.192), rgba(255, 255, 255, 0), rgb(0, 0, 0)), url("/static/images/wood.jpg");
 }
 
+#cookie {
+    cursor: pointer;
+    height: 25vw;
+    width: 25vw;
+    border-radius: 128px;
+}
+
+.cookiealign {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 35rem;
+    left: 50%;
+    /*transform: translate(-256px, -256px);*/
+    height: 0;
+    width: 0;
+}
+
+.counters {
+    position: absolute;
+    top: 15rem;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 100%;
+
+    text-align: center;
+    color: rgb(219, 208, 188);
+    text-shadow: 2px 1px rgba(30, 30, 30, 0.8);
+}
+
+#level {
+    font-size: 18px;
+    text-shadow: 2px 1px rgba(30, 30, 30, 0.8);
+}
+
+#cookie_number_div {
+    font-size: 30px;
+    background-image: radial-gradient(rgba(0, 0, 0, 0), rgba(59, 59, 59, 0.5), rgb(0, 2, 8));
+    text-shadow: 3px 2px rgba(30, 30, 30, 0.8);
+}
+/*  ========================================================================== UPGRADE DISPLAY WINDOW  ==========================================================================*/
+
+.upgradedisplay {
+    width: 50%;
+    background: linear-gradient(rgba(255, 255, 255, 0.192), rgba(255, 255, 255, 0), rgb(0, 0, 0)), url("/static/images/breadsmol.jpg");
+}
+
+/*  ========================================================================== UPGRADE WINDOW  ========================================================================== */
 .upgradewindow {
     flex: 1;
-    background-color: skyblue;
+    background: linear-gradient(rgba(255, 255, 255, 0.192), rgba(255, 255, 255, 0), rgb(0, 0, 0)), url("/static/images/breadsmol.jpg");
+}
+
+/* a .hideot hovrnél akartam megjeleníteni, nincs kész */
+.hide {
+    display: none;
+}
+
+.cursor {
+    height: 5rem;
+}
+
+/* CU = Click upgrade */
+.CU {
+    display: flex;
+    flex-direction: row;
+}
+
+.CU > button {
+    color: inherit;
+    font-size: 18px;
+    background-color: rgba(0, 0, 0, 0);
+    background-image: radial-gradient(rgb(0, 0, 0), rgba(59, 59, 59, 0.25), rgba(0, 0, 0, 0));
+
+    border: none;
+    padding: 0;
+    margin: 0;
+
+    cursor: pointer;
+}
+
+/* PPU = passive production upgrade */
+.PPU {
+    display: flex;
+    flex-direction: column;
+}
+
+.PPU > button {
+    color: inherit;
+    font-size: 30px;
+
+    text-shadow: 2px 1px rgba(30, 30, 30, 0.8);
+    background: rgba(0, 0, 0, 0);
+
+    border: none;
+    padding: 10px 30px;
+    margin: 0;
+    cursor: pointer;
+}
+
+#buy_grandmas {
+    background-image: url("/static/images/Granny2.png"), url("/static/images/grandma.jpg");
+    background-repeat: no-repeat;
+}
+
+#buy_factories {
+    background-image: url("/static/images/Factory2.png"), url("/static/images/factory.jpg");
+    background-repeat: no-repeat;
 }
